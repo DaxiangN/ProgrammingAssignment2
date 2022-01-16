@@ -1,21 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+---
+title: "Week 3 Assignment notebook"
+output: html_notebook
+---
 
-## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
-}
-
-
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
-
-##################
-# Week 3 example
+```{r}
 makeVector <- function(x = numeric()) {
         m <- NULL
         set <- function(y) {
@@ -41,3 +29,43 @@ cachemean <- function(x, ...) {
         x$setmean(m)
         m
 }
+```
+
+```{r}
+a <- c(2,4,6,8)
+```
+
+```{r}
+b <- makeVector(a)
+```
+
+```{r}
+print(b)
+```
+
+```{r}
+b$get()
+```
+
+```{r}
+b$set()
+```
+
+```{r}
+b$setmean()
+```
+```{r}
+b$getmean()
+```
+# run cachemean, since the mean was not calculated, the function will calculate the mean and store it in b
+
+```{r}
+cachemean(b)
+```
+
+# if you run cacheman again, you can find that the function detected the mean, and returned the message'getting cached data'
+
+```{r}
+cachemean(b)
+```
+
