@@ -2,7 +2,8 @@
 title: "Week 3 Assignment notebook"
 output: html_notebook
 ---
-
+### Assignment Example
+### The set() function made me very confused, since it has never been called in the whole process and seems not relevant with the question at all. Then I found this that very useful in explaining what happened: https://stackoverflow.com/questions/34811462/r-what-does-the-small-function-do-when-it-is-not-called-from-anywhere
 ```{r}
 makeVector <- function(x = numeric()) {
         m <- NULL
@@ -57,15 +58,47 @@ b$setmean()
 ```{r}
 b$getmean()
 ```
-# run cachemean, since the mean was not calculated, the function will calculate the mean and store it in b
+### run cachemean, since the mean was not calculated, the function will calculate the mean and store it in b
 
 ```{r}
 cachemean(b)
 ```
 
-# if you run cacheman again, you can find that the function detected the mean, and returned the message'getting cached data'
+### if you run cacheman again, you can find that the function detected the mean, and returned the message'getting cached data'
 
 ```{r}
 cachemean(b)
 ```
+### Concept of inverse matrix
+
+```{r}
+z <- matrix(c(2,9,6,5,3,8,6,4,7),3,3)
+print(z)
+```
+
+```{r}
+v <- solve(z)
+print(v)
+```
+### you will get identity matrix if you multiply z and v, you will have to round it in R to get zeros.
+```{r}
+round(z %*% v)
+```
+### another example
+
+```{r}
+    A <- matrix( c(5, 1, 0,
+                   3,-1, 2,
+                   4, 0,-1), nrow=3, byrow=TRUE)
+print(A)
+```
+```{r}
+B <- solve(A)
+print(B)
+```
+```{r}
+C <- A %*% B
+print(C)
+```
+
 

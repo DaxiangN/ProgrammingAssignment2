@@ -1,43 +1,32 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## makeCacheMatrix can generate a list can stores the matrix and has the spot to store its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
-}
-
-
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
-
-##################
-# Week 3 example
-makeVector <- function(x = numeric()) {
         m <- NULL
         set <- function(y) {
                 x <<- y
                 m <<- NULL
         }
         get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
-        list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
+        setinver <- function(inver) m <<- inver
+        getinver <- function() m
+        list(set = set, get = get, 
+             setinver = setinver, getinver = getinver)
 }
 
-cachemean <- function(x, ...) {
-        m <- x$getmean()
+## cacheSolve retrieves the cached inverse if exists, if not then calculate it.
+
+cacheSolve <- function(x, ...) {
+        m <- x$getinver()
         if(!is.null(m)) {
-                message("getting cached data")
+                message("getting cached inverse")
                 return(m)
         }
         data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
+        m <- solve(data,...)
+        x$setinver(m)
+        return(m)
+        ## Return a matrix that is the inverse of 'x'
 }
